@@ -22,7 +22,7 @@ app.use(middleware(clientCompiler , {
     publicPath: devClientConfig.output.publicPath,
 }))
 // 监听客户端内容编译完成
-clientCompiler.hooks.done.tapAsync("done", stats=>{
+clientCompiler.hooks.done.tap("done", stats=>{
     const info = stats.toJson();
     if( stats.hasErrors ) console.log(info.errors);
     if( stats.hasWarnings ) console.log(info.warnings);
