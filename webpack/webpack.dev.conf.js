@@ -19,10 +19,6 @@ module.exports = merge( baseConfig , {
         publicPath: '/',
     },
     devtool: 'cheap-module-eval-source-map',
-    devServer:{
-        contentBase: './dist',
-        hot:true,
-    },
     plugins:[
         new cleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),

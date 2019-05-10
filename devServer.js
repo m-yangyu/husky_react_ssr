@@ -49,7 +49,6 @@ serverCompiler.watch({
 // 设置项目的静态文件地址
 app.use( express.static( devServerConfig.output.path ) );
 app.get('/*',(req,res)=>{
-    // console.log(  , '111111');
     const manifest = JSON.parse(clientCompiler.outputFileSystem.readFileSync(`${clientCompiler.outputPath}/manifest.json`));
     res.send( render( req.url , manifest) );
 })

@@ -1,9 +1,10 @@
 import {Provider} from 'react-redux';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import {StaticRouter} from 'react-router-dom';
 import getTpl from './getTpl';
 import configureStore from 'STORE';
-import isObject from 'isobject';
+// import isObject from 'isobject';
 import routerConfig from 'ROUTER';
 
 // 设置store内容
@@ -27,7 +28,12 @@ export default function( url , manifest){
     // 获取当前路由下面的组件
     const Component = routerConfig[url].component;
 
-    const html = renderToStaticMarkup(  <Provider store={store}><Component/></Provider> );
+    const html = renderToStaticMarkup(  
+    <Provider store={store}>
+        <StaticRouter location={url} context={{}}>
+            <Component/>
+        </StaticRouter>
+    </Provider> );
 
     return getTpl( html , css , js )
 

@@ -5,7 +5,7 @@ import { Hello } from 'PAGES/Test2';
 
 export default {
 
-    '/ssr' :{
+    '/' :{
         component: Test,
         name: 'test',
     },
